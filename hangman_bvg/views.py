@@ -1,3 +1,5 @@
 from django.shortcuts import render
 
-# Create your views here.
+def index(request):
+    """ Basic view for Home Page"""
+    return render(request, 'hangman_bvg/index.html')
