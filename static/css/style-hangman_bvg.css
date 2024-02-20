@@ -1,0 +1,49 @@
+body {
+  background-color: #f0d722;
+}
+
+.ubahn {
+width: 200px;
+height: 200px;
+border-radius: 35px;
+text-transform: uppercase;
+font-weight: bolder;
+color: #FFF;
+font-size: 6rem;
+}
+
+.u1 {
+background: #7eaf4b;
+}
+
+.u2 {
+background: #db4018;
+}
+
+.u3 {
+background: #0e683a;
+}
+
+.u4 {
+background: #efd71b;
+}
+
+.u5 {
+background: #7f522b;
+}
+
+.u6 {
+background: #8d6dad;
+}
+
+.u7 {
+background: #009cd6;
+}
+
+.u8 {
+background: #1d4e87;
+}
+
+.u9 {
+background: #f37a17;
+}
