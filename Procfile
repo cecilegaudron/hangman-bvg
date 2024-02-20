@@ -1,0 +1,1 @@
+web: gunicorn hangman_game.wsgi
