@@ -6,7 +6,6 @@ Code for the logic code is from https://github.com/codebiet/Hangman/blob/main/ha
 import tkinter as tk
 from tkinter import *
 from tkinter import messagebox
-import tkinter.ttk as ttk
 import random
 
 window = tk.Tk()
