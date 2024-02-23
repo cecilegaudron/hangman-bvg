@@ -31,7 +31,7 @@ SECRET_KEY = os.environ.get('SECRET_KEY', '')
 DEBUG = True
 
 ALLOWED_HOSTS = [
-    "hangman-bvg.herokuapp.com", "localhost", "127.0.0.1"
+    "hangman-bvg-701f79a0e67f.herokuapp.com", "localhost", "127.0.0.1"
 ]
 
 
