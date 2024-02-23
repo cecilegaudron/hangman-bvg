@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.http import JsonResponse
 
-from .hangman_u1 import newGame, window
+from hangman_u1 import newGame, window
 
 def index(request):
     """ Basic view for Home Page"""
