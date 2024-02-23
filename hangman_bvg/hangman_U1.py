@@ -1,5 +1,6 @@
 """
 Tkinter with https://koor.fr/Python/Tutoriel_Tkinter/tkinter_layout_pack.wp
+Code for the logic code is from https://github.com/codebiet/Hangman/blob/main/hangman.py
 """
 
 import tkinter as tk
