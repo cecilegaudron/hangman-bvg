@@ -1,5 +1,6 @@
 from django.shortcuts import render
-from django.http import JsonResponse
+#from django.http import JsonResponse
+from tkinter import *
 
 from .hangman_u2 import newGame, window
 
