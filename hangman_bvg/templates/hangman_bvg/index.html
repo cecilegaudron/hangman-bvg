@@ -10,10 +10,10 @@
   <div class="container mx-auto">
     <div class="row">
       <div class="col-2">
-        <a href="game_u1" class="ubahn u1" id="execute-link">U1</a>
+        <a href="{% url 'game_view' 'u1' %}" class="ubahn u1" id="execute-link">U1</a>
       </div>
       <div class="col-2">
-        <a href="{% url 'index' %}" class="ubahn u2">U2</a>
+        <a href="{% url 'game_view' 'u2' %}" class="ubahn u2">U2</a>
       </div>
       <div class="col-2">
         <a href="{% url 'index' %}" class="ubahn u3">U3</a>
@@ -47,20 +47,5 @@
 {% endblock %}
 
 {% block postloadjs %}
-<script>
-  $(document).ready(function() {
-      $('#execute-link').click(function() {
-          $.ajax({
-              url: '{% url "execute_python_code" %}',
-              type: 'GET',
-              success: function(response) {
-                  alert(response.result);
-              },
-              error: function() {
-                  alert('Une erreur s\'est produite lors de l\'exécution du code Python.');
-              }
-          });
-      });
-  });
-</script>
+
 {% endblock %}
