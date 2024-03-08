@@ -1,0 +1,65 @@
+{% extends "base.html" %} {% load static %} {% block content %}
+
+<section>
+  <div class="overlay"></div>
+
+  <div class="container mx-auto">
+    <div class="row">
+      <div class="col-2">
+        <a href="{% url 'index' %}">Retour</a>
+      </div>
+    </div>
+  </div>
+  <div class="container mx-auto">
+    <div class="row">
+      <div class="col-2">
+        <h1>"Pankow - Saisplusou"</h1>
+      </div>
+      <div class="col-2">
+        <h2 class="ubahn u2">U2</h2>
+      </div>
+    </div>
+  </div>
+  <div>
+    <p>Guessed word so far: {{ guessed_word }}</p>
+    <div>
+      {% if userLetterChoice %}
+        <p>You chose: {{ userChoice }}</p>
+      {% endif %}
+    </div>
+    <div></div>
+  </div>
+  <div>
+    <div>
+      <form action="{% url 'game_view' %}" method="POST">
+        {% csrf_token %} {{ form.as_p }}
+        <button class="btn btn-green title float-right" type="Submit">Valider</button>
+      </form>
+    </div>
+    {% if message %}
+    <p>{{ message }}</p>
+{% endif %}
+  </div>
+  <div class="container mx-auto">
+    <div class="row">
+      <div class="col-2">
+        <p>{{ lives }}/ 6 essais</p>
+      </div>
+    </div>
+  </div>
+  <div class="container mx-auto">
+    <div class="row">
+      <div class="col-2">
+        <form action="{% url '/new_game/u2' %}" method="post">
+          {% csrf_token %}
+          <button type="submit">New Game</button>
+      </form>
+      </div>
+      <div class="col-2">
+        <button class="btn btn-green">Quitter</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% endblock %}

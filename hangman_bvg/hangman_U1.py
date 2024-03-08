@@ -1,7 +1,7 @@
 """
 Tkinter with https://koor.fr/Python/Tutoriel_Tkinter/tkinter_layout_pack.wp
 Code for the logic code is from https://github.com/codebiet/Hangman/blob/main/hangman.py
-"""
+
 
 import tkinter as tk
 from tkinter import *
@@ -11,7 +11,7 @@ import random
 window = tk.Tk()
 
 # Initialize variables
-word_list = ['PANKOW']
+word_list = ['PANKOW', 'GÖRLITZER BAHNHOF']
 the_word = None
 guessed = []
 numberOfGuesses = 0
@@ -91,7 +91,7 @@ left_label = Label(
       bg="#7eaf4b",
       font=("Helvetica 20 bold"),
       relief='solid',   # Adding relief to simulate border-radius
-      pady=70  # Increase the vertical padding to extend the color vertically
+      pady=50  # Increase the vertical padding to extend the color vertically
       )
 left_label.pack(side="left", fill="x")
         
@@ -159,3 +159,5 @@ submit_button.pack()
 # Create the window, launch the game and display it in the tkinter window
 newGame()
 window.mainloop()
+
+"""

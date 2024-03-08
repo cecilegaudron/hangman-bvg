@@ -1,0 +1,67 @@
+{% extends "base.html" %} {% load static %} {% block content %}
+
+<section class="container mx-auto">
+  <div class="overlay"></div>
+
+  <div class="container mx-auto">
+    <div class="row">
+      <div class="col-2">
+        <a class="game_button" href="{% url 'index' %}">Retour</a>
+      </div>
+    </div>
+  </div>
+  <div class="container mx-auto title_line">
+    <div class="row">
+      <div class="col-10">
+        <h1 class="line">"Warschaeur Straße - Uhlandstraße"</h1>
+      </div>
+      <div class="col-2">
+        <h2 class="ubahn u1 title">U1</h2>
+      </div>
+    </div>
+  </div>
+  <div class="container mx-auto">
+    <div class="row">
+      <div class="col-4 text-center">
+        <p class="station">Station mystère :</p>
+      </div>
+      <div class="col-8 text-center">
+        <p class="guessed_word">{{ guessed_word }}</p>
+      </div>
+    </div>
+    <div class="message">
+      <p>{% if message %} {{ message }} {% endif %}</p>
+    </div>
+    <div class="row">
+      <div class="col-8 text-center">
+        <p class="bolder">
+          Lettres déjà utilisées : {{ wrong_letters|join:", " }}
+        </p>
+      </div>
+      <div class="col-4 lives text-center">
+        <p>{{ lives }} / 6 essais</p>
+      </div>
+    </div>
+    <div class="text-center">
+      <form action="{% url 'game_view' 'u1' %}" method="POST">
+        {% csrf_token %} {{ form.as_p }}
+        <button class="game_button" type="Submit">Valider</button>
+      </form>
+    </div>
+  </div>
+  <div class="container mx-auto text-center">
+    <div class="row">
+      <div class="col-6">
+        <form action="{% url 'new_game_view' 'u1' %}" method="post">
+          {% csrf_token %}
+          <button type="submit" class="game_button">Rejouer</button>
+        </form>
+      </div>
+      <div class="col-6">
+        <a href="{% url 'index' %}" class="game_button">Quitter</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% endblock %}
