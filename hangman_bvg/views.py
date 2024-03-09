@@ -54,19 +54,17 @@ def game_view(request, list_name):
 
             # Update the game state based on the user's guess
             if userLetterChoice in userChoice:
-                message = "Cette lettre a déjà été choisie ❗ "
+                message = "Dieser Buchstabe wurde bereits ausgewählt ❗ "
             elif userLetterChoice in station:
-                message = "Correct! ✅ "
+                message = "Richtig! ✅ "
                 userChoice.append(userLetterChoice)
                 if all(letter in userChoice for letter in station):
-                    message = "BRAVO! 🎉 Tu as gagné avec {lives} propositions restantes."
-                    new_game(request)
+                    message = f"BRAVO! 🎉 Du hast mit {lives} verbleibenden Versuchen gewonnen!"
             else:
-                message = "Eh non, cette lettre ne fait pas partie du mot. ❌"
+                message = "Nein, dieser Buchstabe ist nicht Teil des Wortes. ❌"
                 lives -= 1
                 if lives == 0:
-                    message = f"Tu as épuisé toutes tes vies. 😭 Il fallait trouver : {station}."
-                    new_game(request)
+                    message = f"Du hast alle deine Versuche ausgeschöpft. 😭 Wir mussten herausfinden : '{station}'."
                 
             # Create a string that represents the current state of the guessed word
             guessed_word = ' '.join(letter if letter in userChoice else '_' for letter in station)

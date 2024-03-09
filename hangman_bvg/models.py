@@ -3,7 +3,7 @@ import json
 
 class Guess(models.Model):
     userLetterChoice = models.CharField(
-        "Choisir une lettre :", 
+        "Einen Buchstaben auswählen:", 
         default = '',
         max_length=1,
         null=False,
