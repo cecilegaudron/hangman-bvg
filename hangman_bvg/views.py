@@ -8,6 +8,10 @@ def index(request):
     # Basic view for Home Page
     return render(request, 'hangman_bvg/index.html', {})
 
+def rules(request):
+    # Basic view for Rules Page
+    return render(request, 'hangman_bvg/regeln.html', {})
+
 def new_game(request, list_name):
     # Get the game state from the session
     request.session['userChoice'] = []

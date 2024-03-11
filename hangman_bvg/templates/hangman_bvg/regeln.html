@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+
+<section>
+  
+  <div class="overlay"></div>
+
+  <div class="container mx-auto">
+    <div class="row">
+      <div class="col-12 text-center">
+        <h1 class="station">Regeln</h1>
+      </div>
+    </div>
+  </div>
+  <div class="container mx-auto">
+    <div class="row">
+      <div class="col-12">
+        <p>Das Prinzip des Spiels besteht darin, die geheimnisvolle Station zu finden. <br/><br/>
+            Der Computer hat nach dem Zufallsprinzip eine der Stationen der Linie ausgewählt, auf der du spielen möchtest. <br/>
+            Du hast eine bestimmte Anzahl von Versuchen, um die geheimnisvolle Station zu finden. Jedes Mal, wenn du einen Buchstaben angibst, der nicht in der geheimnisvollen Station vorkommt, verlierst du einen Versuch.<br/><br/>
+            Du darfst immer nur einen Buchstaben angeben! <br/><br/>
+            Die Striche zeigen an, wie viele Buchstaben zu finden sind und wo die erratenen Buchstaben im Wort liegen.<br/>
+            <strong>Achtung! Die ß und Umlaute müssen richtig ausgefüllt werden!</strong><br/><br/>
+            Um ein neues Spiel zu beginnen und die bereits erratenen Buchstaben zu löschen, klicke auf "Erneut Spielen".<br/><br/>
+            Tipp: Du kannst mit einigen Vokalen beginnen und dann einige gängige Konsonanten wie s, t oder r verwenden.</p>
+      </div>
+    </div>
+  </div>
+  <div class="container mx-auto">
+    <div class="row">
+        <div class="col-12 text-center">
+            <a href="{% url 'index' %}" class="game_button rules mt-1">Zurück</a>
+        </div>
+    </div>
+</div>
+</section>
+
+{% endblock %}

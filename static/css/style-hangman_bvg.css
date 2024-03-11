@@ -82,11 +82,6 @@ background: #f37a17;
   text-transform: uppercase;
 }
 
-.back {
-  background-color: #f37a17;
-  color: white;
-}
-
 .new {
   background-color: #6B8E23;
   color: white;
@@ -95,6 +90,12 @@ background: #f37a17;
 .quit {
   background-color: #B22222;
   color: white;
+}
+
+.rules {
+  background-color: #f37a17;
+  color: black;
+  margin-top: 20%;
 }
 
 /* Styles for the top with title */
