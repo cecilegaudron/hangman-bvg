@@ -1,6 +1,7 @@
 from django import forms
 from .models import Guess
 
+# Form for the user to make a guess
 class GuessForm(forms.ModelForm):
     class Meta:
         model = Guess
