@@ -6,17 +6,19 @@
   <div class="container mx-auto title_line">
     <div class="row">
       <div class="col-10">
-        <h1 class="line">"Pankow - Ruhleben"</h1>
+        <h1 class="line">"Alexanderplatz - Hönow"</h1>
       </div>
-      <div class="col-4 ubahn_title u2">
-        <h2 class="title text-center">U2</h2>
+      <div class="col-4 ubahn_title u5">
+        <h2 class="title text-center">U5</h2>
       </div>
     </div>
   </div>
   <div class="container mx-auto">
     <div class="row">
       <div class="col-12">
-        <p>Die Linie U2 hat 29 Stationen und ist 20,7 km lang.</p>
+        <p>
+          Die U-Bahn-Linie U5 ist eine 22,4 km lange Strecke der Berliner U-Bahn und hat 26 Bahnhöfe. Seit Dezember 2020 ist sie nach der U7 die zweitlängste U-Bahn-Linie in Berlin.
+        </p>
       </div>
     </div>
   </div>
@@ -33,7 +35,7 @@
   </div>
   <div>
     <div class="text-center">
-      <form action="{% url 'game_view' 'u2' %}" method="POST">
+      <form action="{% url 'game_view' 'u5' %}" method="POST">
         {% csrf_token %} {{ form.as_p }}
         <button class="game_button" type="Submit">Bestätigen</button>
       </form>
@@ -56,7 +58,7 @@
   <div class="container mx-auto text-center">
     <div class="row">
       <div class="col-md-6">
-        <form action="{% url 'new_game_view' 'u2' %}" method="post">
+        <form action="{% url 'new_game_view' 'u5' %}" method="post">
           {% csrf_token %}
           <button type="submit" class="game_button new">Erneut spielen</button>
         </form>

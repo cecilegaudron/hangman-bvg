@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 from .forms import GuessForm
-from .stations import bahnhof_u1, bahnhof_u2, bahnhof_u3
+from .stations import bahnhof_u1, bahnhof_u2, bahnhof_u3, bahnhof_u4, bahnhof_u5, bahnhof_u6, bahnhof_u7, bahnhof_u8, bahnhof_u9
 import random
 
 
@@ -24,6 +24,18 @@ def new_game(request, list_name):
         request.session['station'] = random.choice(bahnhof_u2)
     elif list_name == 'u3':
         request.session['station'] = random.choice(bahnhof_u3)
+    elif list_name == 'u4':
+        request.session['station'] = random.choice(bahnhof_u4)
+    elif list_name == 'u5':
+        request.session['station'] = random.choice(bahnhof_u5)
+    elif list_name == 'u6':
+        request.session['station'] = random.choice(bahnhof_u6)
+    elif list_name == 'u7':
+        request.session['station'] = random.choice(bahnhof_u7)
+    elif list_name == 'u8':
+        request.session['station'] = random.choice(bahnhof_u8)
+    elif list_name == 'u9':
+        request.session['station'] = random.choice(bahnhof_u9)
     
 def new_game_view(request, list_name):
     new_game(request, list_name)
@@ -42,6 +54,27 @@ def game_view(request, list_name):
     elif list_name == 'u2':
         station = request.session.get('station', random.choice(bahnhof_u2))
         template_name = 'hangman_bvg/hangman_u2.html'
+    elif list_name == 'u3':
+        station = request.session.get('station', random.choice(bahnhof_u3))
+        template_name = 'hangman_bvg/hangman_u3.html'
+    elif list_name == 'u4':
+        station = request.session.get('station', random.choice(bahnhof_u4))
+        template_name = 'hangman_bvg/hangman_u4.html'
+    elif list_name == 'u5':
+        station = request.session.get('station', random.choice(bahnhof_u5))
+        template_name = 'hangman_bvg/hangman_u5.html'
+    elif list_name == 'u6':
+        station = request.session.get('station', random.choice(bahnhof_u6))
+        template_name = 'hangman_bvg/hangman_u6.html'
+    elif list_name == 'u7':
+        station = request.session.get('station', random.choice(bahnhof_u7))
+        template_name = 'hangman_bvg/hangman_u7.html'
+    elif list_name == 'u8':
+        station = request.session.get('station', random.choice(bahnhof_u8))
+        template_name = 'hangman_bvg/hangman_u8.html'
+    elif list_name == 'u9':
+        station = request.session.get('station', random.choice(bahnhof_u9))
+        template_name = 'hangman_bvg/hangman_u9.html'
     
     # Create a string that represents the current state of the guessed word
     guessed_word = ''.join(letter if letter in userChoice else '_' for letter in station)
