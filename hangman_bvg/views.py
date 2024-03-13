@@ -77,7 +77,8 @@ def game_view(request, list_name):
         template_name = 'hangman_bvg/hangman_u9.html'
     
     # Create a string that represents the current state of the guessed word
-    guessed_word = ''.join(letter if letter in userChoice else '_' for letter in station)
+    # guessed_word = ''.join(letter if letter in userChoice else '_' for letter in station)
+    guessed_word = ''.join(letter if letter in userChoice else ' ' if letter == ' ' else '_' for letter in station)
             
     if request.method == "POST":
         form = GuessForm(request.POST)
@@ -104,7 +105,8 @@ def game_view(request, list_name):
                     message = f"Du hast alle deine Versuche ausgeschöpft. 😭 Wir mussten herausfinden : '{station}'."
                 
             # Create a string that represents the current state of the guessed word
-            guessed_word = ' '.join(letter if letter in userChoice else '_' for letter in station)
+            #guessed_word = ' '.join(letter if letter in userChoice else '_' for letter in station)
+            guessed_word = ''.join(letter if letter in userChoice else ' ' if letter == ' ' else '_' for letter in station)
 
 
             # Save the game state in the session so it persists across requests
@@ -130,3 +132,7 @@ def game_view(request, list_name):
         'guessed_word': guessed_word,
         'wrong_letters': wrong_letters,
         })
+    
+def quit(request):
+    request.session.flush()
+    return redirect('index')
