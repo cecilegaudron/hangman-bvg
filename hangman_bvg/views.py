@@ -93,21 +93,16 @@ def game_view(request, list_name):
             # Update the game state based on the user's guess
             if userLetterChoice in userChoice:
                 message = "Dieser Buchstabe wurde bereits ausgewählt ❗ "
-            elif userLetterChoice in station:
+            elif userLetterChoice in station.lower():
                 message = "Richtig! ✅ "
                 userChoice.append(userLetterChoice)
-                if all(letter in userChoice for letter in station):
+                if all(letter in userChoice for letter in station.lower()):
                     message = f"BRAVO! 🎉 Du hast mit {lives} verbleibenden Versuchen gewonnen!"
             else:
                 message = "Nein, dieser Buchstabe ist nicht Teil des Wortes. ❌"
                 lives -= 1
                 if lives == 0:
                     message = f"Du hast alle deine Versuche ausgeschöpft. 😭 Wir mussten herausfinden : '{station}'."
-                
-            # Create a string that represents the current state of the guessed word
-            #guessed_word = ' '.join(letter if letter in userChoice else '_' for letter in station)
-            guessed_word = ''.join(letter if letter in userChoice else ' ' if letter == ' ' else '_' for letter in station)
-
 
             # Save the game state in the session so it persists across requests
             request.session['userChoice'] = userChoice
