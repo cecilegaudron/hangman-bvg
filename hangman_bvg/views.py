@@ -77,7 +77,6 @@ def game_view(request, list_name):
         template_name = 'hangman_bvg/hangman_u9.html'
     
     # Create a string that represents the current state of the guessed word
-    # guessed_word = ''.join(letter if letter in userChoice else '_' for letter in station)
     guessed_word = ''.join(letter if letter in userChoice else ' ' if letter == ' ' else '_' for letter in station)
             
     if request.method == "POST":
@@ -103,7 +102,10 @@ def game_view(request, list_name):
                 lives -= 1
                 if lives == 0:
                     message = f"Du hast alle deine Versuche ausgeschöpft. 😭 Wir mussten herausfinden : '{station}'."
-
+            
+            # Create a string that represents the current state of the guessed word
+            guessed_word = ''.join(letter if letter.lower() in userChoice else ' ' if letter == ' ' else '_' for letter in station)
+    
             # Save the game state in the session so it persists across requests
             request.session['userChoice'] = userChoice
             request.session['lives'] = lives
@@ -116,7 +118,7 @@ def game_view(request, list_name):
         
     # Create a list of guessed letters that are not in the station word
     all_guesses = request.session.get('all_guesses', [])
-    wrong_letters = [letter for letter in all_guesses if letter not in station]
+    wrong_letters = [letter for letter in all_guesses if letter not in station.lower()]
 
     return render(request, template_name, {
         'form': form, 
