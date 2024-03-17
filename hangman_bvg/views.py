@@ -15,7 +15,7 @@ def rules(request):
 def new_game(request, list_name):
     # Get the game state from the session
     request.session['userChoice'] = []
-    request.session['lives'] = 6
+    request.session['lives'] = 10
     request.session['all_guesses'] = []  # reset all_guesses
     # Choose the correct list of stations
     if list_name == 'u1':
@@ -47,7 +47,7 @@ def game_view(request, list_name):
         request.session['all_guesses'] = []
     # Get the game state from the session
     userChoice = request.session.get('userChoice', [])
-    lives = request.session.get('lives', 6)
+    lives = request.session.get('lives', 10)
     if list_name == 'u1':
         station = request.session.get('station', random.choice(bahnhof_u1))
         template_name = 'hangman_bvg/hangman_u1.html'
